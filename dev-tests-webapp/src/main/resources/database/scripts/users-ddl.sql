@@ -1,0 +1,30 @@
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS USERS;
+
+CREATE TABLE USERS
+(
+  ID            INT NOT NULL,
+  USERNAME      VARCHAR(32) NOT NULL UNIQUE,
+  FIRSTNAME     VARCHAR(32) NOT NULL,
+  LASTNAME      VARCHAR(32) NOT NULL,
+
+  PRIMARY KEY (ID)
+);
+
+CREATE TABLE QUESTIONS
+(
+  ID            INT NOT NULL,
+  NAME          VARCHAR(1024) NOT NULL UNIQUE,
+  CONTENT       VARCHAR(4000) NOT NULL,
+
+  PRIMARY KEY (ID)
+);
+
+---------------------------------------------------------------------
+
+INSERT INTO USERS (ID, USERNAME, FIRSTNAME, LASTNAME) VALUES (1, 'admin', 'Administrator', 'Administrator');
+
+INSERT INTO QUESTIONS (ID, NAME, CONTENT) VALUES (1, 'No 1', 'u mad bro?');
+
+COMMIT;
