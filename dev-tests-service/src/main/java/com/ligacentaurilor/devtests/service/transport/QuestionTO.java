@@ -1,6 +1,8 @@
 package com.ligacentaurilor.devtests.service.transport;
 
 
+import java.util.List;
+
 public class QuestionTO {
 
     private Long id;
@@ -8,6 +10,8 @@ public class QuestionTO {
     private String name;
 
     private String content;
+
+    private List<AnswerTO> answers;
 
     public Long getId() {
         return id;
@@ -31,5 +35,13 @@ public class QuestionTO {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<AnswerTO> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<AnswerTO> answers) {
+        this.answers = answers;
     }
 }

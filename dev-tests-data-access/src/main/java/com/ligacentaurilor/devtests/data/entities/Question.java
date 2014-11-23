@@ -2,7 +2,9 @@ package com.ligacentaurilor.devtests.data.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "QUESTIONS")
@@ -14,6 +16,9 @@ public class Question {
     private String name;
 
     private String content;
+
+    @OneToMany(mappedBy = "embeddedId.question")
+    private List<Answer> answers;
 
     public Long getId() {
         return id;
@@ -37,6 +42,14 @@ public class Question {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     @Override
