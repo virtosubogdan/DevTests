@@ -1,16 +1,12 @@
+Ext.require(['controller.Question']);
+
 Ext.application({
-    name   : 'MyApp',
+    name: 'MyApp',
 
-    launch : function() {
-
-        Ext.create('Ext.Panel', {
-            renderTo     : Ext.getBody(),
-            width        : 200,
-            height       : 150,
-            bodyPadding  : 5,
-            title        : 'Hello World',
-            html         : 'Hello <b>World</b>...'
-        });
+    launch: function () {
+        console.log('before init app');
+        Ext.create('controller.Question').init();
+        console.log('after init app');
 
     }
 });
