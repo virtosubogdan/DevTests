@@ -25,4 +25,9 @@
     <!-- Import the web related beans -->
     <import resource="applicationContext-web.xml"/>
 
+    <!-- Import the security related beans -->
+    <import resource="applicationContext-security.xml"/>
+
+    <!-- Import the scheduling related beans -->
+    <import resource="applicationContext-scheduling.xml"/>
 </beans>
