@@ -23,7 +23,7 @@ public class PostAuthFilter extends UsernamePasswordAuthenticationFilter {
     @SuppressWarnings("unchecked")
     protected void successfulAuthentication(HttpServletRequest request, final HttpServletResponse response, FilterChain chain, Authentication authentication)
             throws IOException, ServletException {
-
+        super.successfulAuthentication(request, response, chain, authentication);
         String userName = obtainUsername(request);
 
         LOGGER.info("On successful authentication - the user '{}' has logged in", userName);
@@ -37,7 +37,7 @@ public class PostAuthFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)
             throws IOException, ServletException {
-
+        super.unsuccessfulAuthentication(request, response, authenticationException);
         String userName = obtainUsername(request);
 
         LOGGER.info("On unsuccessful authentication - the user '{}' has not logged in", userName);
