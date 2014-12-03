@@ -1,27 +1,23 @@
+Ext.require('view.Login');
+
 Ext.define('controller.Login', {
     extend: 'Ext.app.ViewController',
 
     init: function () {
-        console.log('before create view');
-
         Ext.create('view.Login', {
             renderTo: Ext.get('login-div'),
             parentController: this
         }).show();
-        console.log('after show view');
         Ext.getCmp("login-btn").on("click", function (button, event) {
             if (!Ext.getCmp("login-view").getForm().isValid()) return;
             Ext.getCmp("login-view").getForm().submit({
-                url: 'j_spring_security_check?auth=form',
+                url: 'j_spring_security_check',
                 method: 'POST',
-                success: function () {
-                    console.log('successful login');
-                    window.location = 'question.html';
+                success: function (form, action) {
+                    window.location = 'demo.html';
                 },
 
                 failure: function (form, action) {
-                    console.log('fail');
-                    console.log(action);
                     form.reset();
                 }
             });

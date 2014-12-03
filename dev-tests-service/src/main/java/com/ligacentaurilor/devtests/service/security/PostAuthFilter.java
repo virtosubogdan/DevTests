@@ -37,11 +37,8 @@ public class PostAuthFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException authenticationException)
             throws IOException, ServletException {
-        super.unsuccessfulAuthentication(request, response, authenticationException);
         String userName = obtainUsername(request);
-
         LOGGER.info("On unsuccessful authentication - the user '{}' has not logged in", userName);
-
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid username or password");
+        super.unsuccessfulAuthentication(request, response, authenticationException);
     }
 }

@@ -18,9 +18,7 @@ Ext.application({
                 type: 'ajax',
                 url: 'devTests/demo/questions',
                 reader: {
-                    type: 'json',
-                    root: 'root',
-                    totalProperty: 'total'
+                    type: 'json'
                 }
             },
             autoLoad: true
