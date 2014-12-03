@@ -2,10 +2,9 @@ package com.ligacentaurilor.devtests.data.dao;
 
 
 import com.ligacentaurilor.devtests.data.entities.User;
+import org.springframework.data.repository.Repository;
 
-import java.util.List;
+public interface UserDAO extends Repository<User, Long> {
 
-public interface UserDAO {
-
-    public List<User> getAll();
+    Iterable<User> findAll();
 }

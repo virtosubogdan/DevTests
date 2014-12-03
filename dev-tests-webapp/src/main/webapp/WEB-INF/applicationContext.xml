@@ -20,7 +20,7 @@
     <context:property-placeholder location="classpath:database/database-connection.properties"/>
 
     <!-- Import the database related beans and configurations -->
-    <import resource="applicationContext-database-hibernate.xml"/>
+    <import resource="applicationContext-database.xml"/>
 
     <!-- Import the web related beans -->
     <import resource="applicationContext-web.xml"/>

@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionsServiceImpl implements QuestionsService {
@@ -22,13 +23,11 @@ public class QuestionsServiceImpl implements QuestionsService {
     private QuestionDAO questionDAO;
 
     @Override
-    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Transactional(value = "devTestsSpringDataTransactionManager", readOnly = true, propagation = Propagation.REQUIRED)
     public List<QuestionTO> getQuestions() {
-        List<QuestionTO> questionTOs = new LinkedList<>();
-        for (Question question : questionDAO.getQuestions()) {
-            questionTOs.add(getQuestionTO(question));
-        }
-        return questionTOs;
+        return questionDAO.findAll().stream()
+                .map(this::getQuestionTO)
+                .collect(Collectors.toCollection(LinkedList::new));
     }
 
     private QuestionTO getQuestionTO(Question question) {

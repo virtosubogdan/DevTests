@@ -2,10 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation=
                "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
                 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
                 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
@@ -39,4 +41,19 @@
 
     <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
           p:location="classpath:database/hibernate.properties"/>
+
+    <jpa:repositories base-package="com.ligacentaurilor.devtests.data.dao"
+                      entity-manager-factory-ref="devTestsEntityManagerFactory"
+                      transaction-manager-ref="devTestsSpringDataTransactionManager"/>
+
+    <bean id="devTestsEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:dataSource-ref="devTestsDataSource" p:packagesToScan="com.ligacentaurilor.devtests.data.entities"
+          p:jpaVendorAdapter-ref="hibernateJPAAdapter"/>
+
+    <bean id="hibernateJPAAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+          p:showSql="true"/>
+
+    <bean id="devTestsSpringDataTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="devTestsEntityManagerFactory"/>
+    </bean>
 </beans>

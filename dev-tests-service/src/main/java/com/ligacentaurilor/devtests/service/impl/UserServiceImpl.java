@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
     public List<UserTO> getAllUsers() {
         List<UserTO> userTOs = new LinkedList<>();
-        for (User user : userDAO.getAll()) {
+        for (User user : userDAO.findAll()) {
             UserTO userTO = new UserTO();
             userTO.setId(user.getId());
             userTO.setUsername(user.getUsername());
