@@ -11,11 +11,11 @@
     <http pattern="/index.html" security="none"/>
     <http pattern="/favicon.ico" security="none"/>
     <http pattern="/css/**" security="none"/>
-    <http pattern="/ext/**" security="none"/>
     <http pattern="/js/**" security="none"/>
     <http pattern="/view/**" security="none"/>
     <http pattern="/model/**" security="none"/>
     <http pattern="/controller/**" security="none"/>
+    <http pattern="/webjars/**" security="none"/>
 
     <http auto-config="false" entry-point-ref="authenticationEntryPoint" create-session="ifRequired"
           use-expressions="true">

@@ -1,13 +1,15 @@
 Ext.require(['controller.Login']);
 
-Ext.application({
-    name: 'Login',
+Ext.onReady(function () {
+    Ext.application({
+        name: 'Login',
 
-    launch: function () {
+        launch: function () {
 
-        Ext.create('controller.Login', {
-            renderTo: Ext.get('login-div')
-        }).init();
-        Ext.getCmp('username').focus();
-    }
+            Ext.create('controller.Login', {
+                renderTo: Ext.get('login-div')
+            }).init();
+            Ext.getCmp('username').focus();
+        }
+    })
 });

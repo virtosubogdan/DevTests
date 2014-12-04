@@ -8,6 +8,8 @@
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/webjars/**" location="/webjars/"/>
+
     <!-- map responses to JSP pages -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
