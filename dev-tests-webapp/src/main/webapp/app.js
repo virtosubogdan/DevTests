@@ -1,14 +1,12 @@
-Ext.require(['controller.Question']);
+Ext.require(['controller.Question', 'controller.Menu']);
 
 Ext.onReady(function () {
     Ext.application({
         name: 'MyApp',
 
         launch: function () {
-            console.log('before init app');
             Ext.create('controller.Question').init();
-            console.log('after init app');
-
+            Ext.create('controller.Menu').init();
         }
     })
 });

@@ -1,0 +1,18 @@
+
+#login-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    padding-top: 100px;
+}
+
+#menu-div {
+    width: 15%;
+    float: left;
+    padding-top: 100px;
+}
+
+#question {
+    margin-left: 15%;
+    width: 85%;
+}

@@ -4,7 +4,6 @@ Ext.define('view.Question', {
 
     initComponent: function () {
         var me = this;
-        console.log('before creating items');
         me.items = [
             {
                 xtype: 'gridpanel',
@@ -38,7 +37,5 @@ Ext.define('view.Question', {
             }
         ];
         me.callParent(arguments);
-        console.log('after creating items');
-
     }
 });

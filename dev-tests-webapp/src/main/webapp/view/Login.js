@@ -2,8 +2,8 @@ Ext.define('view.Login', {
     extend: 'Ext.form.Panel',
 
     id: 'login-view',
-    height: 190,
-    width: 380,
+    height: 200,
+    width: 400,
     layout: 'absolute',
     bodyPadding: 10,
     preventHeader: true,
