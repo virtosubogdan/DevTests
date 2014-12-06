@@ -4,14 +4,10 @@ Ext.define('controller.Question', {
     extend: 'Ext.app.ViewController',
 
     init: function () {
-        console.log('before create view');
-
         Ext.create('view.Question', {
-            renderTo: Ext.get('question'),
+            renderTo: Ext.get('content-div'),
             parentController: this
         }).show();
-        console.log('after show view');
-
     },
 
     getQuestionsStore: function () {

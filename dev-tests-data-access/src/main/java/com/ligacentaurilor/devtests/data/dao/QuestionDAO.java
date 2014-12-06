@@ -9,4 +9,6 @@ import java.util.List;
 public interface QuestionDAO extends Repository<Question, Long> {
 
     List<Question> findAll();
+
+    Long count();
 }

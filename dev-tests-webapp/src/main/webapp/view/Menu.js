@@ -7,10 +7,13 @@ Ext.define('view.Menu', {
 
         me.items = [{
             text: 'Home',
-            handler: me.parentController.go
+            handler: me.parentController.goHome
         }, {
             text: 'Tests',
             handler: me.parentController.go
+        }, {
+            text: 'Questions',
+            handler: me.parentController.goToQuestions
         }, {
             text: 'Performance Report',
             handler: me.parentController.go

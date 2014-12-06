@@ -12,5 +12,15 @@ Ext.define('controller.Menu', {
 
     go: function () {
         console.log('going somewhere');
+    },
+
+    goHome: function () {
+        Ext.getCmp('content-component').close();
+        Ext.create('controller.Home').init();
+    },
+
+    goToQuestions: function () {
+        Ext.getCmp('content-component').close();
+        Ext.create('controller.Question').init();
     }
 });

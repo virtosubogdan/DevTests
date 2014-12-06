@@ -21,12 +21,6 @@ public class DemoController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/test")
-    @ResponseBody
-    public String getDemo() {
-        return "test2";
-    }
-
     @RequestMapping(value = "/questions")
     @ResponseBody
     List<QuestionTO> getQuestion() {

@@ -7,4 +7,6 @@ import org.springframework.data.repository.Repository;
 public interface UserDAO extends Repository<User, Long> {
 
     Iterable<User> findAll();
+
+    Long count();
 }

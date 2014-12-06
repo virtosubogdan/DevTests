@@ -1,6 +1,6 @@
 Ext.define('view.Question', {
     extend: 'Ext.panel.Panel',
-
+    id: 'content-component',
 
     initComponent: function () {
         var me = this;
@@ -9,7 +9,7 @@ Ext.define('view.Question', {
                 xtype: 'gridpanel',
                 region: 'center',
                 preventHeader: true,
-                style: { padding: '5px' },
+                style: {padding: '5px'},
                 border: false,
                 store: me.parentController.getQuestionsStore(),
                 enableColumnHide: false,
@@ -17,7 +17,7 @@ Ext.define('view.Question', {
                 columns: [{
                     dataIndex: 'id',
                     hidden: true
-                },{
+                }, {
                     dataIndex: 'name',
                     text: 'Question',
                     width: 250,
@@ -27,7 +27,7 @@ Ext.define('view.Question', {
                         enforceMaxLength: true,
                         msgTarget: 'side'
                     }
-                },{
+                }, {
                     dataIndex: 'content',
                     text: 'Content',
                     flex: 1
