@@ -3,6 +3,8 @@ package com.ligacentaurilor.devtests.data.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity(name = "USERS")
 public class User {
@@ -10,7 +12,7 @@ public class User {
     @Id
     private Long id;
 
-    @Column(length = 32)
+    @Column(length = 32, unique = true)
     private String username;
 
     @Column(length = 32)
@@ -24,6 +26,9 @@ public class User {
 
     @Column(length = 256)
     private String password;
+
+    @OneToMany(mappedBy = "user")
+    private List<Test> tests;
 
     public Long getId() {
         return id;
@@ -71,6 +76,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(List<Test> tests) {
+        this.tests = tests;
     }
 
     @Override

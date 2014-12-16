@@ -8,5 +8,9 @@ public interface UserDAO extends Repository<User, Long> {
 
     Iterable<User> findAll();
 
+    User findOne(Long userId);
+
+    User findByUsername(String username);
+
     Long count();
 }

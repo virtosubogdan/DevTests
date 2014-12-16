@@ -22,5 +22,10 @@ Ext.define('controller.Menu', {
     goToQuestions: function () {
         Ext.getCmp('content-component').close();
         Ext.create('controller.Question').init();
+    },
+
+    goToTests: function () {
+        Ext.getCmp('content-component').close();
+        Ext.create('controller.TestsSummary').init();
     }
 });

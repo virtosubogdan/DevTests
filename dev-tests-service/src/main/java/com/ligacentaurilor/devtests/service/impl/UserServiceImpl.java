@@ -6,6 +6,8 @@ import com.ligacentaurilor.devtests.data.entities.User;
 import com.ligacentaurilor.devtests.service.UserService;
 import com.ligacentaurilor.devtests.service.transport.UserTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +22,7 @@ public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
 
     @Override
-    @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+    @Transactional(value = "devTestsSpringDataTransactionManager", readOnly = true, propagation = Propagation.SUPPORTS)
     public List<UserTO> getAllUsers() {
         List<UserTO> userTOs = new LinkedList<>();
         for (User user : userDAO.findAll()) {
@@ -33,5 +35,12 @@ public class UserServiceImpl implements UserService {
             userTOs.add(userTO);
         }
         return userTOs;
+    }
+
+    @Override
+    @Transactional(value = "devTestsSpringDataTransactionManager", readOnly = true, propagation = Propagation.SUPPORTS)
+    public User getCurrentUser() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return userDAO.findByUsername(auth.getName());
     }
 }
