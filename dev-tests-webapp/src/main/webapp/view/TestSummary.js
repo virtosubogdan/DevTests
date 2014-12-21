@@ -1,4 +1,4 @@
-Ext.define('view.TestsSummary', {
+Ext.define('view.TestSummary', {
     extend: 'Ext.panel.Panel',
     id: 'content-component',
 
@@ -11,26 +11,32 @@ Ext.define('view.TestsSummary', {
                 preventHeader: true,
                 style: {padding: '5px'},
                 border: false,
-                store: me.parentController.getTestsStore(),
+                store: me.parentController.getQuestionsStore(),
                 enableColumnHide: false,
                 defaultType: 'gridcolumn',
                 columns: [{
-                    dataIndex: 'id',
+                    dataIndex: 'number',
                     hidden: true
                 }, {
-                    dataIndex: 'name',
-                    text: 'Test',
-                    flex: 1
+                    dataIndex: 'testId',
+                    hidden: true
+                }, {
+                    dataIndex: 'questionId',
+                    hidden: true
                 }, {
                     dataIndex: 'status',
                     text: 'Status',
-                    width: 100
+                    width: 200
+                }, {
+                    dataIndex: 'identifier',
+                    text: 'Identifier',
+                    flex: 1
                 }
                 ],
                 selModel: Ext.create('Ext.selection.RowModel', {}),
                 listeners: {
                     itemdblclick: function (dv, record, item, index, e) {
-                        me.parentController.openTest(record.get('id'));
+                        console.log(record);
                     }
                 }
             }

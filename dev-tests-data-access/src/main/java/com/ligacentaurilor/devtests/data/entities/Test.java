@@ -1,6 +1,7 @@
 package com.ligacentaurilor.devtests.data.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  *
@@ -20,6 +21,9 @@ public class Test {
 
     @Column(length = 4000)
     private String type;
+
+    @OneToMany(mappedBy = "embeddedId.test")
+    private List<TestQuestion> questions;
 
     public Long getId() {
         return id;
@@ -51,5 +55,13 @@ public class Test {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public List<TestQuestion> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<TestQuestion> questions) {
+        this.questions = questions;
     }
 }

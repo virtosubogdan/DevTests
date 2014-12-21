@@ -22,5 +22,12 @@ Ext.define('controller.TestsSummary', {
                 reader: {type: 'json'}
             }
         });
+    },
+
+    openTest: function (testId) {
+        Ext.getCmp('content-component').close();
+        var testSummaryController = Ext.create('controller.TestSummary');
+        testSummaryController.testId = testId;
+        testSummaryController.init();
     }
 });

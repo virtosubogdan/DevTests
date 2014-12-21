@@ -3,6 +3,7 @@ Ext.define('model.TestSummary', {
 
     fields: [
         {name: 'id', type: 'string'},
-        {name: 'name', type: 'string'}
+        {name: 'name', type: 'string'},
+        {name: 'status', type: 'string'}
     ]
 });

@@ -9,6 +9,8 @@ public class TestsSummaryTO {
 
     private String name;
 
+    private String status;
+
     public Long getId() {
         return id;
     }
@@ -23,6 +25,14 @@ public class TestsSummaryTO {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -47,6 +57,7 @@ public class TestsSummaryTO {
         return "TestsSummaryTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

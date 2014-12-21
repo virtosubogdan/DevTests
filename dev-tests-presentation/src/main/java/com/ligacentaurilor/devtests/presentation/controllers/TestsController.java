@@ -1,10 +1,12 @@
 package com.ligacentaurilor.devtests.presentation.controllers;
 
 import com.ligacentaurilor.devtests.service.TestsService;
+import com.ligacentaurilor.devtests.service.transport.TestQuestionSummaryTO;
 import com.ligacentaurilor.devtests.service.transport.TestsSummaryTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -20,6 +22,12 @@ public class TestsController {
     @ResponseBody
     List<TestsSummaryTO> getTestsSummary() {
         return testsService.getTestsSummary();
+    }
+
+    @RequestMapping("/summary")
+    @ResponseBody
+    List<TestQuestionSummaryTO> getTestSummary(@RequestParam("testId") Long testId) {
+        return testsService.getTestSummary(testId);
     }
 
 }

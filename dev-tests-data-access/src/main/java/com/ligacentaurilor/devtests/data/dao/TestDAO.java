@@ -10,5 +10,7 @@ public interface TestDAO extends Repository<Test, Long> {
 
     Iterable<Test> findAll();
 
+    Test findOne(Long id);
+
     Long count();
 }

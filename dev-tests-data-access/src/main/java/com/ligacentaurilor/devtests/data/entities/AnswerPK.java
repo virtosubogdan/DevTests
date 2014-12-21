@@ -9,20 +9,12 @@ import java.io.Serializable;
 @Embeddable
 public class AnswerPK implements Serializable {
 
-    @Column
-    private Long id;
+    @Column(name = "ANSWER_NR")
+    private Long answerNr;
 
     @ManyToOne
     @JoinColumn(name = "QUESTION_ID")
     private Question question;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Question getQuestion() {
         return question;
@@ -32,6 +24,14 @@ public class AnswerPK implements Serializable {
         this.question = question;
     }
 
+    public Long getAnswerNr() {
+        return answerNr;
+    }
+
+    public void setAnswerNr(Long answerNr) {
+        this.answerNr = answerNr;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,7 +39,7 @@ public class AnswerPK implements Serializable {
 
         AnswerPK answerPK = (AnswerPK) o;
 
-        if (id != null ? !id.equals(answerPK.id) : answerPK.id != null) return false;
+        if (answerNr != null ? !answerNr.equals(answerPK.answerNr) : answerPK.answerNr != null) return false;
         if (question != null ? !question.equals(answerPK.question) : answerPK.question != null) return false;
 
         return true;
@@ -47,8 +47,16 @@ public class AnswerPK implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = answerNr != null ? answerNr.hashCode() : 0;
         result = 31 * result + (question != null ? question.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "AnswerPK{" +
+                "answerNr=" + answerNr +
+                ", question=" + question +
+                '}';
     }
 }
