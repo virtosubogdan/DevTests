@@ -8,6 +8,7 @@
     <global-method-security pre-post-annotations="enabled"/>
 
     <http pattern="/login.html" security="none"/>
+    <http pattern="/register.html" security="none"/>
     <http pattern="/index.html" security="none"/>
     <http pattern="/favicon.ico" security="none"/>
     <http pattern="/css/**" security="none"/>
@@ -20,6 +21,7 @@
     <http auto-config="false" entry-point-ref="authenticationEntryPoint" create-session="ifRequired"
           use-expressions="true">
         <intercept-url pattern="/j_spring_security_check" access="permitAll"/>
+        <intercept-url pattern="/devTests/main/register" access="permitAll"/>
         <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 
         <custom-filter position="LAST" ref="authenticationFilter"/>

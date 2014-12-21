@@ -1,15 +1,13 @@
 package com.ligacentaurilor.devtests.data.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "USERS")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 32, unique = true)
@@ -29,6 +27,9 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Test> tests;
+
+    @OneToMany(mappedBy = "embeddedId.user")
+    private List<Role> roles;
 
     public Long getId() {
         return id;
@@ -84,6 +85,14 @@ public class User {
 
     public void setTests(List<Test> tests) {
         this.tests = tests;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

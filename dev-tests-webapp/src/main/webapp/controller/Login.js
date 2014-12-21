@@ -22,5 +22,8 @@ Ext.define('controller.Login', {
                 }
             });
         });
+        Ext.getCmp("register-btn").on("click", function (button, event) {
+            window.location = 'register.html';
+        });
     }
 });

@@ -3,7 +3,7 @@ Ext.define('view.Login', {
 
     id: 'login-view',
     height: 200,
-    width: 400,
+    width: 300,
     layout: 'absolute',
     bodyPadding: 10,
     preventHeader: true,
@@ -47,11 +47,19 @@ Ext.define('view.Login', {
                 }
             },{
                 xtype: 'button',
+                id: 'register-btn',
+                text: 'Register',
+                height: 22,
+                width: 80,
+                x: 55,
+                y: 130
+            },{
+                xtype: 'button',
                 id: 'login-btn',
                 text: 'Login',
                 height: 22,
                 width: 80,
-                x: 255,
+                x: 165,
                 y: 130
             }
         ];

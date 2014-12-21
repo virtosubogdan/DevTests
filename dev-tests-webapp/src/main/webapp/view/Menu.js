@@ -19,7 +19,7 @@ Ext.define('view.Menu', {
             handler: me.parentController.go
         }, {
             text: 'Logout',
-            handler: me.parentController.go
+            handler: me.parentController.logout
         }
         ];
         me.callParent(arguments);

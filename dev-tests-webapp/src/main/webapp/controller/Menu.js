@@ -27,5 +27,9 @@ Ext.define('controller.Menu', {
     goToTests: function () {
         Ext.getCmp('content-component').close();
         Ext.create('controller.TestsSummary').init();
+    },
+
+    logout: function(){
+        window.location='j_spring_security_logout';
     }
 });
